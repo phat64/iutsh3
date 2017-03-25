@@ -1,0 +1,89 @@
+				
+			##### #   # #####  ####  #   #    ####
+			  #   #   #   #   #      #   #        #
+                          #   #   #   #    ###   #####    ####
+                          #   #   #   #       #  #   #        #
+                        #####  ###    #   ####   #   #    ####
+			
+			########################################
+			
+
+
+Ce qui a été fait :
+===================
+
+	- les sources sont bien docummentées et le projet est decoupé en plusieurs parties 
+	
+	- les noms des fonctions sont toutes en anglais et les commentaires en français 
+
+	- le traitement d'une ligne de commande est bien geré ( avant plan et arriere plan)
+
+	- le nombre de commandes et de tubes n'est pas limité ( depend des ressources )
+
+	- la minimisation des allocations memoires ( réallocation si l'espace est insuffisant )
+
+	- le traitement des signaux : 
+
+		-> SIGCHLD ( fin des processus fils) 
+	
+		-> SIGALRM (permet de  prendre connaissances de la fin des fils à 
+		 un interval régulier au cas ou le signal  SIGCHLD n'aurait pas été recue ) 
+	
+		-> SIGKILL ( pour mettre fin à tous les processus enfants )
+
+	- nb : grace au SIGCHLD, il y aucun processus zombis pendant l'execution 
+
+	- toutes les erreurs sont gerées ( affichage du nom de la fonction, de la ligne et 
+	 du message d'erreur correspondant à la variable errno )
+
+	- les commandes "exit" et "cd" sont gérées 
+		
+	- un mode DEBUG ( il suffit d'ajouter l'option -DDEBUG à la compilation )
+
+	
+
+
+Arborécence et découpage du projet :
+====================================
+
+	.
+	|-- Makefile
+	|-- README
+	|-- include
+	|   |-- debug.h
+	|   |-- environment.h
+	|   |-- error.h
+	|   |-- execute.h
+	|   |-- interprete.h
+	|   |-- ligne_commande.h
+	|   `-- prompt.h
+	|-- iutsh3
+	|-- obj
+	|   `-- ligne_commande.o
+	`-- src
+	    |-- debug.c
+	    |-- environment.c
+	    |-- error.c
+	    |-- execute.c
+	    |-- interprete.c
+	    |-- main.c
+	    `-- prompt.c
+
+Remarque :
+==========
+	
+	- comme tous les noms de procedure sont en anglais, alors :
+
+		-> "lance_commande"  devient  "run_command"
+
+		-> "ligne_commande"  devient  "read_command_line"
+
+		-> "execute_ligne_commande" devient "execute_command_line"  
+
+
+Contact :
+=========
+	
+	Mustapha Tachouct <tachoucm@yahoo.fr>
+	
+
